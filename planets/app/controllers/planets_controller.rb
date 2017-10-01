@@ -50,3 +50,21 @@ class PlanetsController < ApplicationController
     orbit_period: "164.8 years",
   }
 }
+
+  def index
+    @list = @@planets.each do |key, object|
+            puts "#{key}"
+            puts object
+    end
+  end
+
+  def show
+    @name = params[:id].to_sym
+    @planet = @@planets[@name]
+  end
+
+  def random
+    @a = @@planets.keys.sample(8)[1]
+    @planet = @@planets[@a]
+  end
+end
