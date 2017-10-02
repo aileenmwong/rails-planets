@@ -1,9 +1,9 @@
 class PlanetsController < ApplicationController
+  @@planets = {
 
-@@planets = {
-  mercury: {
+   mercury: {
     name: "Mercury",
-    distance_from_sun: "57,909,227 km (0.39 AU)"
+    distance_from_sun: "57,909,227 km (0.39 AU)",
     diameter: "4,879 km",
     orbit_period: "88 days",
   },
@@ -50,21 +50,21 @@ class PlanetsController < ApplicationController
     orbit_period: "164.8 years",
   }
 }
-
   def index
     @list = @@planets.each do |key, object|
-            puts "#{key}"
-            puts object
+          puts "#{key}"
+          puts object
     end
   end
 
-  def show
+ def show
     @name = params[:id].to_sym
     @planet = @@planets[@name]
   end
 
-  def random
-    @a = @@planets.keys.sample(8)[1]
-    @planet = @@planets[@a]
-  end
+def random
+   @a = @@planets.keys.sample(8)[1]
+   @planet = @@planets[@a]
+
+end
 end
