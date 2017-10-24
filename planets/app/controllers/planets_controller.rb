@@ -57,14 +57,14 @@ class PlanetsController < ApplicationController
     end
   end
 
- def show
+  def show
     @name = params[:id].to_sym
     @planet = @@planets[@name]
   end
 
-def random
-   @a = @@planets.keys.sample(8)[1]
-   @planet = @@planets[@a]
+  def random
+    @a = @@planets.keys.sample(8)[1]
+    @planet = @@planets[@a]
+  end
 
-end
 end
